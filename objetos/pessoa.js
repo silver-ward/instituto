@@ -1,4 +1,4 @@
-// Arquivo criado em projeto no www.stackblitz.com denominado Pessoa.js
+// Arquivo criado em projeto no www.stackblitz.com denominado pessoa.js
 // Arquivo criado dentro da pasta "objetos" do projeto
 // não deve executar o arquivo diretamente com node
 
