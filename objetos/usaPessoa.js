@@ -1,6 +1,3 @@
-// Arquivo criado em projeto no www.stackblitz.com denominado usaPessoa.js
-// Para executar utilize: node ./objetos/usaPessoa.js
-
 const Pessoa = require('./pessoa.js');
 
 const joao = new Pessoa(80, 1.75);
