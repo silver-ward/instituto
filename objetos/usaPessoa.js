@@ -1,12 +1,12 @@
 const Pessoa = require('./pessoa.js');
 
 const joao = new Pessoa(80, 1.75);
-console.log(joao.imc());
+console.log("João IMC: " + joao.imc());
 
 const pedro = new Pessoa();
 pedro.peso = 100;
 pedro.altura = 1.6;
-console.log(pedro.imc());
+console.log("Pedro IMC: " + pedro.imc());
 
 const maria = new Pessoa();
 maria.peso = 67;
