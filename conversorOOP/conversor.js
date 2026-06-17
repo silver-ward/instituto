@@ -6,6 +6,10 @@ class Conversor{
     kmParaMilhas(km){
         return (km * 0.621371);
     }
+
+    minutosParaHoras(minutos){
+        return (minutos / 60);
+    }
 }
 
 module.exports = Conversor;
