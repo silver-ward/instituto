@@ -1,6 +1,6 @@
 class CarteiraDigital{
     #titular;
-    #saldo;
+    #saldo = 0;
 
     definirTitular(nome){
         this.#titular = nome;
@@ -9,16 +9,16 @@ class CarteiraDigital{
         return this.#titular;
     }
     depositar(valor){
-        return null;
+        this.#saldo = this.#saldo + valor;
     }
     sacar(valor){
-        return null;
+        this.#saldo = this.#saldo - valor;
     }
     consultarSaldo(){
-        return null;
+        return this.#saldo;
     }
     exibirInformacoes(){
-        return null;
+        return `Titular: ${this.consultarTitular()}\nSaldo: R$${this.consultarSaldo()}`;
     }
 }
 
