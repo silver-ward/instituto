@@ -16,3 +16,5 @@ class PF extends Pessoa{
         return this.#cpf;
     }
 }
+
+module.exports = PF;
