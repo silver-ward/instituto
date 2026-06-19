@@ -22,7 +22,7 @@ if (resposta) {
   console.log("E-mail vazio");
 }
 
-console.log('\n===== Seção PF =====');
+console.log('\n========== Seção PF ==========\n');
 
 const y = new PF();
 
