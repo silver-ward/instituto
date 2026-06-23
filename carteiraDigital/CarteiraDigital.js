@@ -14,7 +14,9 @@ class CarteiraDigital{
     sacar(valor){
         if (this.#saldo > valor){
             this.#saldo = this.#saldo - valor;
+            return true;
         }
+        return false
     }
     consultarSaldo(){
         return this.#saldo;
