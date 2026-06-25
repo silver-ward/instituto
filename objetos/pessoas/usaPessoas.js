@@ -1,5 +1,6 @@
 const Pessoa = require('./Pessoa.js');
 const PF = require('./PF.js');
+const PJ = require('./PJ.js');
 
 const x = new Pessoa();
 
@@ -52,3 +53,19 @@ if (resposta){
 }else{
   console.log('CPF não especificado.');
 }
+
+console.log('\n========== Seção PJ ==========\n');
+
+const z = new PJ();
+
+z.setNome("Frios LTDA");
+
+console.log(`Nome: ${z.getNome()}`);
+
+z.setEmail("frios@email.com");
+
+console.log(`E-mail: ${z.getEmail()}`);
+
+z.setCNPJ('');
+
+console.log(`CNPJ: ${z.getCNPJ()}`);
