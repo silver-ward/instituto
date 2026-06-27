@@ -33,7 +33,7 @@ console.log(resposta);
 if(resposta){
   console.log(`Nome: ${y.getNome()}`);
 } else {
-  console.log('Nome não especificado.');
+  console.log('Nome inválido.');
 }
 
 resposta = y.setEmail('');
@@ -42,7 +42,7 @@ console.log(resposta);
 if (resposta){
   console.log(`Email: ${y.getEmail()}`);
 } else {
-  console.log('Email não especificado.');
+  console.log('Email inválido.');
 }
 
 resposta = y.setCPF('123456789-10');
@@ -51,21 +51,36 @@ console.log(resposta);
 if (resposta){
   console.log(`CPF: ${y.getCPF()}`);
 }else{
-  console.log('CPF não especificado.');
+  console.log('CPF inválido.');
 }
 
 console.log('\n========== Seção PJ ==========\n');
 
 const z = new PJ();
 
-z.setNome("Frios LTDA");
+resposta = z.setNome("Frios LTDA");
+console.log(resposta);
+if (resposta){
+  console.log(`Nome: ${z.getNome()}`);
+}
+else{
+  console.log('Nome inválido.');
+}
 
-console.log(`Nome: ${z.getNome()}`);
+resposta = z.setEmail("frios@email.com");
+console.log(resposta);
+if(resposta){
+  console.log(`E-mail: ${z.getEmail()}`);
+}
+else{
+  console.log('E-mail inválido.');
+}
 
-z.setEmail("frios@email.com");
-
-console.log(`E-mail: ${z.getEmail()}`);
-
-z.setCNPJ('');
-
-console.log(`CNPJ: ${z.getCNPJ()}`);
+resposta = z.setCNPJ('');
+console.log(resposta);
+if(resposta){
+  console.log(`CNPJ: ${z.getCNPJ()}`);
+}
+else{
+  console.log('CNPJ inválido.');
+}

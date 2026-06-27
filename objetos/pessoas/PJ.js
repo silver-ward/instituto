@@ -5,12 +5,12 @@ class PJ extends Pessoa{
 
     setCNPJ(cnpj){
         if (cnpj) {
-            if(cnpj.length < 18){
-                return false;
+            if(cnpj.length >= 18){
+                this.#cnpj = cnpj;
+                return true
             }
-
-            this.#cnpj = cnpj;
-            return true
+            
+            return false;
         }
     }
 
