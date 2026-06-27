@@ -22,12 +22,10 @@ class PJ extends Pessoa{
     }
 
     setEmail(email){
-        if (email !== ''){
-            if (email.includes('@')){
+        if (email !== '' && email.includes('@')){
                 super.setEmail(email);
 
                 return true;
-            }
         }
         return false;
     }
