@@ -21,7 +21,7 @@ else{
     console.log(`Saldo atual: ${conta1.consultarSaldo()}`);
 }
 
-valorSaque = 500
+valorSaque = 500;
 functionCheck = conta1.sacar(valorSaque);
 if (functionCheck){
     console.log(`\nSaque de ${valorSaque} realizado com sucesso.`);
