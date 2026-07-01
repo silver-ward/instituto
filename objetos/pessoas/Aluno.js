@@ -19,6 +19,20 @@ class Aluno extends PF {
     getMatricula(){
         return this.#matricula;
     }
+
+    setCurso(curso){
+        if (curso){
+            if((curso === 'ADS') || (curso === 'SI')){
+                this.#curso = curso;
+            }
+            return false;
+        }
+        return false;
+    }
+
+    getCurso(){
+        return this.#curso;
+    }
 }
 
 module.exports = Aluno;
