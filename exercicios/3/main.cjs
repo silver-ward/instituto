@@ -1,4 +1,4 @@
-const CarteiraDigital = require("./CarteiraDigital.js");
+const CarteiraDigital = require("./carteiraDigital.cjs");
 
 const conta1 = new CarteiraDigital();
 
@@ -18,7 +18,6 @@ else{
     console.log("\nSaldo insuficiente.");
     console.log(`Saldo atual: ${conta1.consultarSaldo()}\n`);
 }
-
 
 functionCheck = conta1.sacar(500);
 if (functionCheck){

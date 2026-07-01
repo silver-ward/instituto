@@ -1,5 +1,5 @@
 // const Conversor = require("./conversor.js"); // CJS
-import { Conversor } from './conversor.js'; // ESM
+import { Conversor } from './conversor.mjs'; // ESM
 
 const Converter = new Conversor();
 
