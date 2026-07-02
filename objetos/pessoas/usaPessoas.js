@@ -1,6 +1,7 @@
 const Pessoa = require('./Pessoa.js');
 const PF = require('./PF.js');
 const PJ = require('./PJ.js');
+const Aluno = require('./Aluno.js');
 
 const x = new Pessoa();
 
@@ -83,4 +84,38 @@ if(resposta){
 }
 else{
   console.log('CNPJ inválido.');
+}
+
+console.log('\n========== Seção Aluno ==========\n');
+
+const w = new Aluno();
+
+resposta = w.setNome('Pedro');
+console.log(resposta);
+
+if(resposta){
+  console.log(w.getNome());
+}
+else{
+  console.log("Nome vazio.");
+}
+
+resposta = w.setMatricula('20123456');
+console.log(resposta);
+
+if (resposta){
+  console.log(w.getMatricula());
+}
+else{
+  console.log("Matrícula inválida");
+}
+
+resposta = w.setCurso('SIS');
+console.log(resposta);
+
+if (resposta){
+  console.log(w.getCurso());
+}
+else{
+  console.log("Curso inválido")
 }
