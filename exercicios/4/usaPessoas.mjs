@@ -1,4 +1,5 @@
 import { Pessoa } from "./Pessoa.mjs";
+import { Aluno } from "./Aluno.mjs";
 
 console.log('\nTeste 1:')
 
@@ -28,4 +29,15 @@ else {
     console.log('Email inválido');
 }
 
+console.log('\nTeste 3:')
+/*
+const a = new Aluno();
 
+a.setNome('Maria');
+a.setEmail('maria@email.com');
+a.setMatricula('2025001');
+
+console.log(a.getNome());
+console.log(a.setEmail());
+console.log(a.getMatricula());
+*/
