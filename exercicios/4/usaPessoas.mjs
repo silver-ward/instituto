@@ -116,8 +116,8 @@ else {
 }
 //#endregion
 
-//#region Desafio extra 1
-console.log('\nDesafio extra 1:');
+//#region Desafio Extra 1
+console.log('\nDesafio Extra 1:');
 
 const d = new Pessoa();
 
@@ -154,5 +154,26 @@ if (g.setEmail('professor.com')){
 else {
     console.log('Email inválido');
 }
+//#endregion
 
+//#region Desafio Extra 2
+console.log('\nDesafio Extra 2:')
+
+const h = new Aluno();
+
+if (h.setMatricula('123456')){
+    console.log('Matrícula cadastrada com sucesso.');
+}
+else {
+    console.log('Matrícula inválida');
+}
+
+const i = new Aluno();
+
+if (i.setMatricula('12345')){
+    console.log('Matrícula cadastrada com sucesso.');
+}
+else {
+    console.log('Matrícula inválida');
+}
 //#endregion

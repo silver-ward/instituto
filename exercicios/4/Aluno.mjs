@@ -5,7 +5,7 @@ class Aluno extends Pessoa {
     #matricula;
 
     setMatricula(matricula) {
-        if (matricula) {
+        if (matricula.length >= 6) {
             this.#matricula = matricula;
             return true;
         }
