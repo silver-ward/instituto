@@ -30,7 +30,7 @@ else {
 }
 
 console.log('\nTeste 3:')
-/*
+
 const a = new Aluno();
 
 a.setNome('Maria');
@@ -38,6 +38,5 @@ a.setEmail('maria@email.com');
 a.setMatricula('2025001');
 
 console.log(a.getNome());
-console.log(a.setEmail());
+console.log(a.getEmail());
 console.log(a.getMatricula());
-*/

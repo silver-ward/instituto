@@ -6,7 +6,7 @@ class Aluno extends Pessoa {
 
     setMatricula(matricula) {
         if (matricula) {
-            #this.matricula = matricula;
+            this.#matricula = matricula;
             return true;
         }
         return false;
