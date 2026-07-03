@@ -19,6 +19,7 @@ class Pessoa {
     setEmail(email) {
         if (email) {
             this.#email = email;
+            return true;
         }
         return false;
     }
