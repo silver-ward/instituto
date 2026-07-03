@@ -1,6 +1,7 @@
 import { Pessoa } from "./Pessoa.mjs";
 import { Aluno } from "./Aluno.mjs";
 import Professor from "./Professor.mjs";
+import Coordenador from "./Coordenador.mjs";
 
 //#region Teste 1
 console.log('\nTeste 1:');
@@ -176,4 +177,13 @@ if (i.setMatricula('12345')){
 else {
     console.log('Matrícula inválida');
 }
+//#endregion
+
+//#region Desafio Avançado
+console.log('\nDesafio Avançado:')
+
+const j = new Coordenador();
+
+j.setSetor('Setor de Testes');
+console.log(j.getSetor());
 //#endregion
