@@ -1,5 +1,6 @@
 import { Pessoa } from "./Pessoa.mjs";
 import { Aluno } from "./Aluno.mjs";
+import Professor from "./Professor.mjs";
 
 console.log('\nTeste 1:')
 
@@ -16,14 +17,14 @@ console.log('\nTeste 2:')
 const p2 = new Pessoa();
 
 if (p.setNome('')) {
-    console.log('Operação realizada com sucesso.');
+    console.log('Nome cadastrado com sucesso.');
 }
 else {
     console.log('Nome inválido');
 }
 
 if (p.setEmail('')) {
-    console.log('Operação realizada com sucesso.');
+    console.log('Email cadastrado com sucesso.');
 }
 else {
     console.log('Email inválido');
@@ -40,3 +41,40 @@ a.setMatricula('2025001');
 console.log(a.getNome());
 console.log(a.getEmail());
 console.log(a.getMatricula());
+
+console.log('\nTeste 4:')
+
+const b = new Aluno();
+
+if (b.setNome('Pedro')) {
+    console.log('Nome cadastrado com sucesso.');
+}
+else {
+    console.log('Nome inválido');
+}
+
+if (b.setEmail('')) {
+    console.log('Email cadastrado com sucesso.');
+}
+else {
+    console.log('Email inválido');
+}
+
+if (b.setMatricula('')) {
+    console.log('Matrícula cadastrada com sucesso.');
+}
+else {
+    console.log('Matrícula inválida');
+}
+
+console.log('\nTeste 5:')
+
+const prof = new Professor();
+
+prof.setNome('Carlos');
+prof.setEmail('carlos@email.com');
+prof.setDisciplina('Programação Web');
+
+console.log(prof.getNome());
+console.log(prof.getEmail());
+console.log(prof.getDisciplina());
