@@ -2,6 +2,7 @@ import { Pessoa } from "./Pessoa.mjs";
 import { Aluno } from "./Aluno.mjs";
 import Professor from "./Professor.mjs";
 
+//#region Teste 1
 console.log('\nTeste 1:');
 
 const p = new Pessoa();
@@ -11,7 +12,9 @@ p.setEmail('joao@email.com');
 
 console.log(p.getNome());
 console.log(p.getEmail());
+//#endregion
 
+//#region Teste 2
 console.log('\nTeste 2:');
 
 const p2 = new Pessoa();
@@ -29,7 +32,9 @@ if (p.setEmail('')) {
 else {
     console.log('Email inválido');
 }
+//#endregion
 
+//#region Teste 3
 console.log('\nTeste 3:');
 
 const a = new Aluno();
@@ -41,7 +46,9 @@ a.setMatricula('2025001');
 console.log(a.getNome());
 console.log(a.getEmail());
 console.log(a.getMatricula());
+//#endregion
 
+//#region Teste 4
 console.log('\nTeste 4:');
 
 const b = new Aluno();
@@ -66,7 +73,9 @@ if (b.setMatricula('')) {
 else {
     console.log('Matrícula inválida');
 }
+//#endregion
 
+//#region Teste 5
 console.log('\nTeste 5:');
 
 const prof = new Professor();
@@ -78,7 +87,9 @@ prof.setDisciplina('Programação Web');
 console.log(prof.getNome());
 console.log(prof.getEmail());
 console.log(prof.getDisciplina());
+//#endregion
 
+//#region Teste 6
 console.log('\nTeste 6:');
 
 const c = new Professor();
@@ -103,7 +114,9 @@ if (c.setDisciplina('')) {
 else {
     console.log('Disciplina inválida');
 }
+//#endregion
 
+//#region Desafio extra 1
 console.log('\nDesafio extra 1:');
 
 const d = new Pessoa();
@@ -141,3 +154,5 @@ if (g.setEmail('professor.com')){
 else {
     console.log('Email inválido');
 }
+
+//#endregion
