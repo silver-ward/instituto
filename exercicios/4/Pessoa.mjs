@@ -17,7 +17,7 @@ class Pessoa {
     }
 
     setEmail(email) {
-        if (email) {
+        if (email.includes('@')) {
             this.#email = email;
             return true;
         }

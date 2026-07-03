@@ -103,3 +103,41 @@ if (c.setDisciplina('')) {
 else {
     console.log('Disciplina inválida');
 }
+
+console.log('\nDesafio extra 1:');
+
+const d = new Pessoa();
+
+if (d.setEmail('aluno@email.com')){
+    console.log('Email cadastrado com sucesso.');
+}
+else {
+    console.log('Email inválido');
+}
+
+const e = new Pessoa();
+
+if (e.setEmail('professor@escola.com')){
+    console.log('Email cadastrado com sucesso.');
+}
+else {
+    console.log('Email inválido');
+}
+
+const f = new Pessoa();
+
+if (f.setEmail('alunoemail.com')){
+    console.log('Email cadastrado com sucesso.');
+}
+else {
+    console.log('Email inválido');
+}
+
+const g = new Pessoa();
+
+if (g.setEmail('professor.com')){
+    console.log('Email cadastrado com sucesso.');
+}
+else {
+    console.log('Email inválido');
+}
