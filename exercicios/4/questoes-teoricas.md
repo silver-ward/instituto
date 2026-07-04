@@ -18,6 +18,8 @@ A lógica dessa dinâmica é simples: atributos públicos são escritos por agen
 
 # 3 Qual é a diferença entre `getNome()` e `setNome()`?
 
+Por convenção, o prefixo "get" indica que o método apenas lê um valor; enquanto que o o prefixo "set" indica que o método escreve um valor - isto é, o define.
+
 # 4 O que faz a palavra-chave `extends`?
 
 # 5 Uma classe filha pode utilizar métodos da classe pai? Explique.
