@@ -32,4 +32,11 @@ Quando o objeto de uma subclasse é instanciado, esse objeto tem acesso às func
 
 # 6 Por que utilizar validações dentro dos métodos de uma classe?
 
+Além do simples fato de que, por exemplo, é preciso validar que um cliente tenha R$20 antes de executar um método que lhe dará R$20, os dados digitais também precisam se encaixar em certos moldes para que sejam utilizáveis pelo sistema.  
+
+Um desses moldes é o tipo. Se um método esperava receber o tipo integer 20, mas acabou recebendo o tipo string '20', o sistema não será capaz de processar esse dado corretamente e deve, portanto, rejeitar a operação ou, talvez, tentar converter o string para integer e prosseguir apenas caso a conversão seja bem sucedida.
+
+Outro desses moldes é a própria lógica do sistema. Se uma parte do código está preparada para receber apenas um sobrenome para depois adicioná-lo a uma string 'Olá Sr. ', o código deve se certificar que "sobrenome" não receba, por exemplo, o valor 'Digite seu nome completo: Eduardo'. Caso contrário, aquela parte do código que presumia receber apenas um sobrenome irá produzir a mensagem "Olá Sr. Digite seu nome completo: Eduardo".
+
 # 7 Qual é a diferença entre herança e reutilização de código por cópia?
+
