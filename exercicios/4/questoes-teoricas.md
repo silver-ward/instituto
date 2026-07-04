@@ -22,6 +22,10 @@ Por convenção, o prefixo "get" indica que o método apenas lê um valor; enqua
 
 # 4 O que faz a palavra-chave `extends`?
 
+Essa palavra reservada permite que uma classe herde as funcionalidades de outra classe. Quando uma subclasse "extende" as funcionalidades de uma superclasse, os objetos dessa subclasse podem executar não apenas os seus próprios métodos, mas também os métodos da superclasse.
+
+Essa herança ainda respeita as regras de encapsulamento. Sendo assim, uma subclasse não pode modificar elementos privados da sua superclasse. 
+
 # 5 Uma classe filha pode utilizar métodos da classe pai? Explique.
 
 # 6 Por que utilizar validações dentro dos métodos de uma classe?
