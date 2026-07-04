@@ -12,6 +12,10 @@ A interação entre o código externo e o código interno, encapsulado, se dá p
 
 # 2 Qual é a vantagem de utilizar-se atributos privados?
 
+A utilização de atributos privados nos dá a chance de proteger esses atributos contra dados irregulares que podem causar erros no sistema. Por meio de interface, atributos públicos são disponibilizados para agentes externos e, quando escritos, esses atributos públicos são submetidos a todas as regras de manipulação de dados contidas na classe antes de serem escritos nos atributos privados.  
+
+A lógica dessa dinâmica é simples: atributos públicos são escritos por agentes externos e podem conter erros ou não estarem normalizados; enquanto isso, atributos privados foram escritos pela própria classe, de acordo com as suas regras internas e, portanto, é esperado que estejam validados, normalizados e prontos para serem armazenados no banco de dados.
+
 # 3 Qual é a diferença entre `getNome()` e `setNome()`?
 
 # 4 O que faz a palavra-chave `extends`?
