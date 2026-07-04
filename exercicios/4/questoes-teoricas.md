@@ -28,6 +28,8 @@ Essa herança ainda respeita as regras de encapsulamento. Sendo assim, uma subcl
 
 # 5 Uma classe filha pode utilizar métodos da classe pai? Explique.
 
+Quando o objeto de uma subclasse é instanciado, esse objeto tem acesso às funcionalidades tanto da subclasse quanto da superclasse, como se fosse a combinação de um objeto comum de uma classe A e outro objeto comum de uma classe B. Isso significa que as regras de acesso continuam iguais: a subclasse e seus objetos acessam apenas as partes públicas da superclasse. A herança funciona como uma canalização, dois ponteiros que apontam para o mesmo endereço. Isso permite o reaproveitamento de código já escrito.
+
 # 6 Por que utilizar validações dentro dos métodos de uma classe?
 
 # 7 Qual é a diferença entre herança e reutilização de código por cópia?
