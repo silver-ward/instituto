@@ -1,3 +1,5 @@
+import { Pessoa } from './Pessoa.mjs';
+
 import readline from 'node:readline/promises';
 //import { stdin as input, stdout as output } from 'node:process';
 //const readline = require('readline');
@@ -15,15 +17,26 @@ while (menuLoop) {
     2 - Cadastrar Aluno
     3 - Cadastrar Professor
     4 - Listar Dados
-    5 - Sair)
+    5 - Sair
     `)
     let escolha = await rl.question('Digite sua opção: ');
     switch (escolha) {
         case '1':
-            console.log('CADASTRO DE PESSOAS');
-            // TODO: implement case 1 logic
+            console.log('\nCADASTRO DE PESSOAS');
+            const pessoa = new Pessoa();
+            console.log('\nDigite os seguintes dados da pessoa a ser cadastrada: ');
+            
+            let nome = await rl.question('Nome: ');
+            let email = await rl.question('Email: ');
+            
+            pessoa.setNome(nome);
+            pessoa.setEmail(email);
 
-            await rl.question('Pressione enter para continuar.');
+            console.log('\nPessoa cadastrada com sucesso:');
+            console.log(`Nome: ${pessoa.getNome()}`);
+            console.log(`Email: ${pessoa.getEmail()}`);
+
+            await rl.question('\nPressione enter para voltar ao menu inicial.');
             break;
         case '5':
             console.log('Saindo...');
