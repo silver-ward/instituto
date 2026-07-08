@@ -17,17 +17,17 @@ while (menuLoop) {
     4 - Listar Dados
     5 - Sair)
     `)
-    let choice = await rl.question('Digite sua opção: ');
-    switch (choice) {
+    let escolha = await rl.question('Digite sua opção: ');
+    switch (escolha) {
         case '1':
             console.log('CADASTRO DE PESSOAS');
-            //TODO: prompt user to press enter
-            // before going back to main menu.
+            // TODO: implement case 1 logic
+
+            await rl.question('Pressione enter para continuar.');
             break;
         case '5':
             console.log('Saindo...');
             menuLoop = false;
-
     }
 }
 
