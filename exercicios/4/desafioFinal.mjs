@@ -1,4 +1,5 @@
 import { Pessoa } from './Pessoa.mjs';
+import {Aluno} from './Aluno.mjs';
 
 import readline from 'node:readline/promises';
 //import { stdin as input, stdout as output } from 'node:process';
@@ -21,7 +22,7 @@ while (menuLoop) {
     `)
     let escolha = await rl.question('Digite sua opção: ');
     switch (escolha) {
-        case '1':
+        case '1':{
             console.log('\nCADASTRO DE PESSOAS');
             const pessoa = new Pessoa();
             console.log('\nDigite os seguintes dados da pessoa a ser cadastrada: ');
@@ -37,9 +38,45 @@ while (menuLoop) {
             console.log(`Email: ${pessoa.getEmail()}`);
 
             await rl.question('\nPressione enter para voltar ao menu inicial.');
-            break;
+            break;}
+
+        case '2':{
+            console.log('\nCADASTRO DE ALUNOS');
+            const aluno = new Aluno();
+            console.log('\nDigite os seguintes dados do aluno a ser cadastrado: ');
+
+            let nome = await rl.question('Nome:\n');
+            let email = await rl.question('Email:\n');
+            let matricula = await rl.question('Matrícula (mínimo 6 caracteres):\n');
+
+            aluno.setNome(nome);
+            aluno.setEmail(email);
+        
+            let check = aluno.setMatricula(matricula);
+            while (!check) {
+                console.log('A matrícula deve conter pelo menos 6 caracteres. Tente novamente.');
+                matricula = await rl.question('Matrícula:\n');
+                check = aluno.setMatricula(matricula);
+            }
+
+            console.log('\nAluno cadastrado com sucesso:');
+            console.log(`Nome: ${aluno.getNome()}`);
+            console.log(`Email: ${aluno.getEmail()}`);
+            console.log(`Matrícula: ${aluno.getMatricula()}`);
+
+            await rl.question('\nPressione enter para voltar ao menu inicial.');
+            break;}
+
+        case '3':{
+            await rl.question('\nPressione enter para voltar ao menu inicial.');
+            break;}
+
+        case '4':{
+            await rl.question('\nPressione enter para voltar ao menu inicial.');
+            break;}
+
         case '5':
-            console.log('Saindo...');
+            console.log('\nSaindo...');
             menuLoop = false;
     }
 }
