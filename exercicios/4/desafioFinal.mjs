@@ -1,5 +1,6 @@
 import { Pessoa } from './Pessoa.mjs';
 import {Aluno} from './Aluno.mjs';
+import Professor from './Professor.mjs';
 
 import readline from 'node:readline/promises';
 //import { stdin as input, stdout as output } from 'node:process';
@@ -68,10 +69,28 @@ while (menuLoop) {
             break;}
 
         case '3':{
+            console.log('\nCADASTRO DE PROFESSORES');
+            const professor = new Professor();
+            console.log('\nDigite os seguintes dados do professor a ser cadastrado: ');
+          
+            let nome = await rl.question('Nome:\n');
+            let email = await rl.question('Email:\n');
+            let disciplina = await rl.question('Disciplina:\n');
+
+            professor.setNome(nome);
+            professor.setEmail(email);
+            professor.setDisciplina(disciplina);
+
+            console.log('\nProfessor cadastrado com sucesso:');
+            console.log(`Nome: ${professor.getNome()}`);
+            console.log(`Email: ${professor.getEmail()}`);
+            console.log(`Disciplina: ${professor.getDisciplina()}`);
+
             await rl.question('\nPressione enter para voltar ao menu inicial.');
             break;}
 
         case '4':{
+            console.log('\nLISTAGEM DE DADOS');
             await rl.question('\nPressione enter para voltar ao menu inicial.');
             break;}
 
