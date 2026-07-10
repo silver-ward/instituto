@@ -76,25 +76,37 @@ while (menuLoop) {
             let nome;
             check = false;
             while(!check){
-                console.log('Nome com pelo menos 1 caractere.');
                 nome = await rl.question('Nome: \n');
                 check = aluno.setNome(nome);
+                if (!check){
+                    process.stdout.write("\nErro identificado: ");
+                    console.log('Nome vazio.\n');
+                    console.log('Tente novamente.');
+                }
             }
             
             let email;
             check = false;
             while(!check){
-                console.log('Endereço de e-mail completo.');
                 email = await rl.question('Email: \n');
                 check = aluno.setEmail(email);
+                if (!check){
+                    process.stdout.write("\nErro identificado: ");
+                    console.log('Endereço de e-mail inválido.\n');
+                    console.log('Tente novamente.');
+                }
             }
 
             let matricula;
             check = false;
             while(!check){
-                console.log('Matrícula com no mínimo 6 caracteres: ');
-                matricula = await rl.question('Matrícula:\n');
+                matricula = await rl.question('Matrícula (mínimo 6 caracteres):\n');
                 check = aluno.setMatricula(matricula);
+                if (!check){
+                    process.stdout.write("\nErro identificado: ");
+                    console.log('A matrícula deve ter ao menos 6 caracteres.\n');
+                    console.log('Tente novamente.');
+                }
             }
             
             alunos.push(aluno)
