@@ -34,24 +34,30 @@ while (menuLoop) {
         case '1': {
             console.log('\nCADASTRO DE PESSOAS');
             const pessoa = new Pessoa();
-            //console.log('\nDigite os seguintes dados da pessoa a ser cadastrada: \n');
+            console.log('\nDigite os seguintes dados da pessoa a ser cadastrada: \n');
 
-            // TODO: add "empty name" prompt
             let nome;
             check = false;
             while(!check){
-                console.log('Nome com pelo menos 1 caractere.');
                 nome = await rl.question('Nome: \n');
                 check = pessoa.setNome(nome);
+                if (!check){
+                    process.stdout.write("\nErro identificado: ");
+                    console.log('Nome vazio.\n');
+                    console.log('Tente novamente.');
+                }
             }
             
-            // TODO: add "invalid email" prompt
             let email;
             check = false;
             while(!check){
-                console.log('Endereço de e-mail completo.');
                 email = await rl.question('Email: \n');
                 check = pessoa.setEmail(email);
+                if (!check){
+                    process.stdout.write("\nErro identificado: ");
+                    console.log('Endereço de e-mail inválido.\n');
+                    console.log('Tente novamente.');
+                }
             }
 
             pessoas.push(pessoa);
