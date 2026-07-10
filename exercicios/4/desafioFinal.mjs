@@ -11,11 +11,13 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-//TODO: add input retry for every attribute if wrong using check =
 
 let pessoas = [];
 let alunos = [];
 let professores = [];
+
+//TODO: add input retry for every attribute if wrong using check =
+var check;
 
 let menuLoop = true;
 while (menuLoop) {
@@ -37,7 +39,7 @@ while (menuLoop) {
             let nome = await rl.question('Nome: ');
             let email = await rl.question('Email: ');
 
-            pessoa.setNome(nome);
+            check = pessoa.setNome(nome);
             pessoa.setEmail(email);
 
             pessoas.push(pessoa);
@@ -60,7 +62,7 @@ while (menuLoop) {
             aluno.setNome(nome);
             aluno.setEmail(email);
 
-            let check = aluno.setMatricula(matricula);
+            check = aluno.setMatricula(matricula);
             while (!check) {
                 console.log('A matrícula deve conter pelo menos 6 caracteres. Tente novamente.');
                 matricula = await rl.question('Matrícula:\n');
