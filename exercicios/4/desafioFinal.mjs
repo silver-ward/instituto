@@ -122,13 +122,41 @@ while (menuLoop) {
             const professor = new Professor();
             console.log('\nDigite os seguintes dados do professor a ser cadastrado: ');
 
-            let nome = await rl.question('Nome:\n');
-            let email = await rl.question('Email:\n');
-            let disciplina = await rl.question('Disciplina:\n');
+            let nome;
+            check = false;
+            while(!check){
+                nome = await rl.question('Nome: \n');
+                check = professor.setNome(nome);
+                if (!check){
+                    process.stdout.write("\nErro identificado: ");
+                    console.log('Nome vazio.\n');
+                    console.log('Tente novamente.');
+                }
+            }
+            
+            let email;
+            check = false;
+            while(!check){
+                email = await rl.question('Email: \n');
+                check = professor.setEmail(email);
+                if (!check){
+                    process.stdout.write("\nErro identificado: ");
+                    console.log('Endereço de e-mail inválido.\n');
+                    console.log('Tente novamente.');
+                }
+            }
 
-            professor.setNome(nome);
-            professor.setEmail(email);
-            professor.setDisciplina(disciplina);
+            let disciplina;
+            check = false;
+            while(!check){
+                disciplina = await rl.question('Disciplina: \n');
+                check = professor.setDisciplina(disciplina);
+                if (!check){
+                    process.stdout.write("\nErro identificado: ");
+                    console.log('Disciplina vazia.\n');
+                    console.log('Tente novamente.');
+                }
+            }
 
             professores.push(professor);
 
