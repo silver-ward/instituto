@@ -36,6 +36,7 @@ while (menuLoop) {
             const pessoa = new Pessoa();
             //console.log('\nDigite os seguintes dados da pessoa a ser cadastrada: \n');
 
+            // TODO: add "empty name" prompt
             let nome;
             check = false;
             while(!check){
@@ -44,6 +45,7 @@ while (menuLoop) {
                 check = pessoa.setNome(nome);
             }
             
+            // TODO: add "invalid email" prompt
             let email;
             check = false;
             while(!check){
@@ -63,22 +65,32 @@ while (menuLoop) {
         case '2': {
             console.log('\nCADASTRO DE ALUNOS');
             const aluno = new Aluno();
-            console.log('\nDigite os seguintes dados do aluno a ser cadastrado: ');
+            console.log('\nDigite os seguintes dados do aluno a ser cadastrado: \n');
 
-            let nome = await rl.question('Nome:\n');
-            let email = await rl.question('Email:\n');
-            let matricula = await rl.question('Matrícula (mínimo 6 caracteres):\n');
+            let nome;
+            check = false;
+            while(!check){
+                console.log('Nome com pelo menos 1 caractere.');
+                nome = await rl.question('Nome: \n');
+                check = aluno.setNome(nome);
+            }
+            
+            let email;
+            check = false;
+            while(!check){
+                console.log('Endereço de e-mail completo.');
+                email = await rl.question('Email: \n');
+                check = aluno.setEmail(email);
+            }
 
-            aluno.setNome(nome);
-            aluno.setEmail(email);
-
-            check = aluno.setMatricula(matricula);
-            while (!check) {
-                console.log('A matrícula deve conter pelo menos 6 caracteres. Tente novamente.');
+            let matricula;
+            check = false;
+            while(!check){
+                console.log('Matrícula com no mínimo 6 caracteres: ');
                 matricula = await rl.question('Matrícula:\n');
                 check = aluno.setMatricula(matricula);
             }
-
+            
             alunos.push(aluno)
 
             console.log('\nAluno cadastrado com sucesso.');
