@@ -16,7 +16,6 @@ let pessoas = [];
 let alunos = [];
 let professores = [];
 
-//TODO: add input retry for every attribute if wrong using check =
 var check;
 
 let menuLoop = true;
