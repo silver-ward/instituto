@@ -34,13 +34,23 @@ while (menuLoop) {
         case '1': {
             console.log('\nCADASTRO DE PESSOAS');
             const pessoa = new Pessoa();
-            console.log('\nDigite os seguintes dados da pessoa a ser cadastrada: ');
+            //console.log('\nDigite os seguintes dados da pessoa a ser cadastrada: \n');
 
-            let nome = await rl.question('Nome: ');
-            let email = await rl.question('Email: ');
-
-            check = pessoa.setNome(nome);
-            pessoa.setEmail(email);
+            let nome;
+            check = false;
+            while(!check){
+                console.log('Nome com pelo menos 1 caractere.');
+                nome = await rl.question('Nome: \n');
+                check = pessoa.setNome(nome);
+            }
+            
+            let email;
+            check = false;
+            while(!check){
+                console.log('Endereço de e-mail completo.');
+                email = await rl.question('Email: \n');
+                check = pessoa.setEmail(email);
+            }
 
             pessoas.push(pessoa);
 
