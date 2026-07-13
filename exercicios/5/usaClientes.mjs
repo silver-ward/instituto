@@ -67,7 +67,7 @@ check = empresa.setNome('Empresa');
 
 if (!check){
     process.stdout.write("\nErro identificado: ");
-    console.log('Endereço de e-mail inválido.\n');
+    console.log('Nome vazio.\n');
 }
 else{
 console.log(`\nNome cadastrado: "${empresa.getNome()}"`);
