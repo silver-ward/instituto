@@ -4,13 +4,6 @@ import PJ from './pessoas/PJ.mjs';
 
 
 /* TODO:
-Modificar setNome() para aceitar apenas
-nomes com 3 ou mais caracteres utilizando >=.
-
-Modificar setEmail() da classe PJ para
-aceitar apenas e-mails terminados em: .com
-email.endsWith(".com")
-
 Criar classe MEI herdando de PJ
 adicionar #ramoAtividade
 adicionar set e getRamoAtividade()
