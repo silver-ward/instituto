@@ -20,7 +20,7 @@ para sucesso ou erro em cada situação.
 var check = false;
 
 //#region Pessoa
-console.log('Cadastro de Pessoa: ');
+console.log('\n-----\nCADASTRO DE PESSOA');
 const pessoa = new Pessoa();
 
 check = pessoa.setNome('Sofia');
@@ -47,7 +47,7 @@ console.log(`\nE-mail cadastrado: "${pessoa.getEmail()}"`);
 
 
 //#region PF
-console.log('Cadastro de Pessoa Física: ');
+console.log('\n-----\nCADASTRO DE PESSOA FÍSICA: ');
 const cidadao = new PF();
 
 check = cidadao.setNome('Alexandre');
@@ -83,7 +83,7 @@ console.log(`\nCPF cadastrado: "${cidadao.getCPF()}"`);
 
 
 //#region PJ
-console.log('Cadastro de Pessoa Jurídica: ');
+console.log('\n-----\nCADASTRO DE PESSOA JURÍDICA');
 const empresa = new PJ();
 
 check = empresa.setNome('Empresa');
