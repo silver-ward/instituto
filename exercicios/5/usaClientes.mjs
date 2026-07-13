@@ -1,3 +1,4 @@
+import PF from './pessoas/PF.mjs';
 import PJ from './pessoas/PJ.mjs';
 
 
@@ -17,10 +18,48 @@ para sucesso ou erro em cada situação.
 
 var check = false;
 
+//#region Pessoa
 console.log('Cadastro de Pessoa: ');
+//#endregion
 
+
+//#region PF
 console.log('Cadastro de Pessoa Física: ');
+const cidadao = new PF();
 
+check = cidadao.setNome('Alexandre');
+
+if (!check){
+    process.stdout.write("\nErro identificado: ");
+    console.log('Nome vazio.\n');
+}
+else{
+console.log(`\nNome cadastrado: "${cidadao.getNome()}"`);
+}
+
+check = cidadao.setEmail('alexandre@email.com');
+
+if (!check){
+    process.stdout.write("\nErro identificado: ");
+    console.log('Endereço de e-mail inválido.\n');
+}
+else{
+console.log(`\nE-mail cadastrado: "${cidadao.getEmail()}"`);
+}
+
+check = cidadao.setCPF('01234567891234');
+
+if (!check){
+    process.stdout.write("\nErro identificado: ");
+    console.log('CPF inválido.\n');
+}
+else{
+console.log(`\nCPF cadastrado: "${cidadao.getCNPJ()}"`);
+}
+//#endregion
+
+
+//#region PJ
 console.log('Cadastro de Pessoa Jurídica: ');
 const empresa = new PJ();
 
@@ -53,3 +92,4 @@ if (!check){
 else{
 console.log(`\nCNPJ cadastrado: "${empresa.getCNPJ()}"`);
 }
+//#endregion
