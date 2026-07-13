@@ -4,7 +4,7 @@ export default class PJ extends Pessoa{
     #cnpj;
 
     setEmail(email){
-        if (email.includes('@') && email.endsWith(".com")){
+        if (email.includes('@') && (email.endsWith(".com") || email.endsWith(".com.br"))){
             return super.setEmail(email);
         }
         return false;
