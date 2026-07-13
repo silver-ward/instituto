@@ -1,3 +1,4 @@
+import Pessoa from './pessoas/Pessoa.mjs';
 import PF from './pessoas/PF.mjs';
 import PJ from './pessoas/PJ.mjs';
 
@@ -20,6 +21,28 @@ var check = false;
 
 //#region Pessoa
 console.log('Cadastro de Pessoa: ');
+const pessoa = new Pessoa();
+
+check = pessoa.setNome('Sofia');
+
+if (!check){
+    process.stdout.write("\nErro identificado: ");
+    console.log('Nome vazio.\n');
+}
+else{
+console.log(`\nNome cadastrado: "${pessoa.getNome()}"`);
+}
+
+check = pessoa.setEmail('sofia@email.com');
+
+if (!check){
+    process.stdout.write("\nErro identificado: ");
+    console.log('E-mail vazio.\n');
+}
+else{
+console.log(`\nE-mail cadastrado: "${pessoa.getEmail()}"`);
+}
+
 //#endregion
 
 
@@ -54,7 +77,7 @@ if (!check){
     console.log('CPF inválido.\n');
 }
 else{
-console.log(`\nCPF cadastrado: "${cidadao.getCNPJ()}"`);
+console.log(`\nCPF cadastrado: "${cidadao.getCPF()}"`);
 }
 //#endregion
 
