@@ -3,7 +3,7 @@ export default class Pessoa {
     #email;
 
     setNome(nome){
-        if(nome){
+        if(nome.length >= 3){
             this.#nome = nome;
             return true;
         }

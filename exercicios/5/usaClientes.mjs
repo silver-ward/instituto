@@ -29,7 +29,7 @@ check = pessoa.setNome('Sofia');
 
 if (!check){
     process.stdout.write("\nErro identificado: ");
-    console.log('Nome vazio.\n');
+    console.log('O nome deve ter no mínimo 3 caracteres.\n');
 }
 else{
 console.log(`\nNome cadastrado: "${pessoa.getNome()}"`);
@@ -56,7 +56,7 @@ check = cidadao.setNome('Alexandre');
 
 if (!check){
     process.stdout.write("\nErro identificado: ");
-    console.log('Nome vazio.\n');
+    console.log('O nome deve ter no mínimo 3 caracteres.\n');
 }
 else{
 console.log(`\nNome cadastrado: "${cidadao.getNome()}"`);
@@ -92,7 +92,7 @@ check = empresa.setNome('Empresa');
 
 if (!check){
     process.stdout.write("\nErro identificado: ");
-    console.log('Nome vazio.\n');
+    console.log('O nome deve ter no mínimo 3 caracteres.\n');
 }
 else{
 console.log(`\nNome cadastrado: "${empresa.getNome()}"`);
