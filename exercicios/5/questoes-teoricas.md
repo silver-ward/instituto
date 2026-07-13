@@ -1,27 +1,27 @@
 ## 1 Qual a diferença entre herança e sobrescrita de métodos?
 
-    ds
+"Herança" descreve a possibilidade de uma subclasse incorporar em si os métodos de uma superclasse. "Sobrescrita" descreve a possibilidade de uma subclasse reescrever os métodos herdados. Essa reescrita muda o comportamento de um método enquanto na subclasse sem alterar o método na superclasse, ou seja, mantém o mesmo nome do método original, mas segue as regras postas pela subclasse.
 
 ## 2 Para que serve a palavra-chave super?
 
-    ds
+ds
 
 ## 3 Qual a vantagem de reutilizar métodos da classe pai?
 
-    ds
+ds
 
 ## 4 Por que utilizar atributos privados (`#`)?
 
-    ds
+ds
 
 ## 5 Qual a diferença entre `!=` e `!==`?
 
-    ds
+ds
 
 ## 6 Qual a função do método `includes()`?
 
-    sd
+sd
 
 ## 7 Em que situação a sobrescrita é mais indicada do que criar um método completamente novo?
 
-    sd 
+sd 
