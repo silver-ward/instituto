@@ -116,3 +116,26 @@ else{
 console.log(`\nCNPJ cadastrado: "${empresa.getCNPJ()}"`);
 }
 //#endregion
+
+//#region E-mail e CNPJ inválidos
+console.log('\n-----\nTESTES INVÁLIDOS: ');
+check = empresa.setEmail('empresa.com');
+
+if (!check){
+    process.stdout.write("\nErro identificado: ");
+    console.log('Endereço de e-mail inválido.\n');
+}
+else{
+console.log(`\nE-mail cadastrado: "${empresa.getEmail()}"`);
+}
+
+check = empresa.setCNPJ('01234567891234');
+
+if (!check){
+    process.stdout.write("\nErro identificado: ");
+    console.log('CNPJ inválido.\n');
+}
+else{
+console.log(`\nCNPJ cadastrado: "${empresa.getCNPJ()}"`);
+}
+//#endregion
