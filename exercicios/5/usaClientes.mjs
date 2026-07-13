@@ -3,19 +3,21 @@ import PF from './pessoas/PF.mjs';
 import PJ from './pessoas/PJ.mjs';
 
 
-/*
-Realize os seguintes testes:
+/* TODO:
+Modificar setNome() para aceitar apenas
+nomes com 3 ou mais caracteres utilizando >=.
 
-Pessoa válida.
-Pessoa Física válida.
-Pessoa Jurídica válida.
-CNPJ inválido.
-E-mail inválido.
+Modificar setEmail() da classe PJ para
+aceitar apenas e-mails terminados em: .com
+email.endsWith(".com")
 
-Exiba mensagens apropriadas
-para sucesso ou erro em cada situação.
+Criar classe MEI herdando de PJ
+adicionar #ramoAtividade
+adicionar set e getRamoAtividade()
+sobrescrever setemail para aceitar apenas
+emails terminados em .com.br, utilizando
+super.setEmail()
 */
-
 
 var check = false;
 
