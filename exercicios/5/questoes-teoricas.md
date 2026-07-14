@@ -24,7 +24,7 @@ Por exemplo, o número 7 e o texto '7' seriam considerados diferentes.
 
 ## 6 Qual a função do método `includes()`?
 
-sd
+Essa função checa se a string argumento pode ser encontrada dentro da string objeto. Por exemplo, email.includes('@') retorna verdadeiro se o caractere '@' for encontrado em qualquer parte do valor do objeto email.
 
 ## 7 Em que situação a sobrescrita é mais indicada do que criar um método completamente novo?
 
