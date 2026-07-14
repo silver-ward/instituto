@@ -4,7 +4,7 @@
 
 ## 2 Para que serve a palavra-chave super?
 
-ds
+Dentro de uma subclasse que está herdando uma superclasse, a palavra "super" serve para referenciar e acessar elementos da superclasse e.g. se a classe "Pessoa" está sendo herdada, `super.getNome()` atua como `Pessoa.getNome()`.
 
 ## 3 Qual a vantagem de reutilizar métodos da classe pai?
 
