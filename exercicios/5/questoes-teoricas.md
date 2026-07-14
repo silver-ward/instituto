@@ -12,7 +12,7 @@ Evitar cópias de código que executam a mesma função e manter uma lógica org
 
 ## 4 Por que utilizar atributos privados (`#`)?
 
-ds
+Os atributos privados protegem dados contra fontes externas que podem não seguir os padrões de validação e tratamento necessários ao escrever valores.
 
 ## 5 Qual a diferença entre `!=` e `!==`?
 
