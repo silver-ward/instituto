@@ -8,7 +8,7 @@ Dentro de uma subclasse que está herdando uma superclasse, a palavra "super" se
 
 ## 3 Qual a vantagem de reutilizar métodos da classe pai?
 
-ds
+Evitar cópias de código que executam a mesma função e manter uma lógica organizacional de funções.
 
 ## 4 Por que utilizar atributos privados (`#`)?
 
