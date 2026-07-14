@@ -16,7 +16,11 @@ Os atributos privados protegem dados contra fontes externas que podem não segui
 
 ## 5 Qual a diferença entre `!=` e `!==`?
 
-ds
+A inequação ampla `!=` tenta transformar dois valores no mesmo tipo e compara se os valores resultantes são diferentes um do outro.
+Por exemplo, o número 7 e o texto '7' seriam considerados iguais.
+
+A inequação estrita `!==` compara se dois valores são diferentes um do outro, inclusive em termos de tipo.
+Por exemplo, o número 7 e o texto '7' seriam considerados diferentes.
 
 ## 6 Qual a função do método `includes()`?
 
