@@ -28,4 +28,4 @@ Essa função checa se a string argumento pode ser encontrada dentro da string o
 
 ## 7 Em que situação a sobrescrita é mais indicada do que criar um método completamente novo?
 
-sd 
+Caso a função do método seja, em prática, a mesma. Por exemplo, quando um método só precisa de alguns ajustes para funcionar corretamente com os objetos de uma subclasse. Outro fator a se considerar é a organização do programa: caso existam vários outros métodos que seguem um mesmo padrão, pode não valer a pena mudar o nome de apenas um método de uma classe só por que o seu funcionamento interno é diferente. Pode ser melhor manter uma lógica de uso na qual, por exemplo, todos os métodos que retornam certos valores sempre são chamados de `getValor()`.
