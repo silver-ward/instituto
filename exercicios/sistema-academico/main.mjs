@@ -13,7 +13,7 @@ console.log(pessoaValid1.getEmail());
 const pessoaInvalid1 = new Pessoa();
 
 pessoaInvalid1.setNome("");
-pessoaInvalid1.setEmail("");
+pessoaInvalid1.setEmail("irregular@email");
 
 console.log(pessoaInvalid1.getNome());
 console.log(pessoaInvalid1.getEmail());
@@ -35,7 +35,7 @@ console.log(alunoValid1.getMatricula());
 
 const alunoInvalid1 = new Aluno();
 alunoInvalid1.setNome("");
-alunoInvalid1.setEmail("");
+alunoInvalid1.setEmail("irregular.com");
 alunoInvalid1.setMatricula("");
 
 console.log(alunoInvalid1.getNome());
