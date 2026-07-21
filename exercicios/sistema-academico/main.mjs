@@ -21,3 +21,16 @@ console.log(aluno.getNome());
 console.log(aluno.getEmail());
 console.log(aluno.getMatricula());
 //#endregion
+
+//#region Professor test
+import Professor from "./pessoas/Professor.mjs";
+const professor = new Professor();
+
+professor.setNome("Carlos");
+professor.setEmail("carlos@email.edu.br");
+professor.setDisciplina("Matemática");
+
+console.log(professor.getNome());
+console.log(professor.getEmail());
+console.log(professor.getDisciplina());
+//#endregion
