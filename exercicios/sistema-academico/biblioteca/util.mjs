@@ -1,7 +1,9 @@
 export default class util {
 
     validarEmail(email) {
-        if(email){
+        if(email.includes('@') &&
+        (email.endsWith('.com') ||
+        email.endsWith(".edu.br"))){
             return true;
         }
         return false;
