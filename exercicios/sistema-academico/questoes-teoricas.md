@@ -1,8 +1,11 @@
 ## 1 Qual é a diferença entre módulo e classe?
 
 Módulo é um mecanismo de organização de arquivos JavaScript que permite a exportação e importação desses arquivos, viabilizando a sua reprodução.
+
 Classe é um modelo para criação de objetos (por si só, esse modelo só é utilizável dentro do mesmo arquivo). Isso também permite a reprodução de funções e propriedades, mas de forma individualizada para cada instância.
+
 Módulos e classes são usados em conjunto, permitindo que o modelo estrutural das classes seja exportado para que objetos instanciem esse modelo em outros arquivos.
+
 Aproximando a comparação, é possível dizer que a classe proporciona a reutilização de código em nível local e organizado em instâncias, enquanto que o módulo possibilita a reutilização de código entre arquivos
 
 ## 2 Por que utilizar encapsulamento?
@@ -28,4 +31,5 @@ Porque isso aproxima as regras de escrita de dados à escrita em si. Se a valida
 ## 7 Em quais situações utilizar `&&` e `||`?
 
 A porta lógica E `&&` exige que duas condições sejam verdadeiras antes que um bloco seja executado.
+
 A porta lógica OU `||` exige que ao menos uma das duas condições sejam verdadeiras antes que um bloco seja executado. 
