@@ -1,13 +1,11 @@
 import Pessoa from "./Pessoa.mjs";
-import util from "../biblioteca/util.mjs";
-
-const Util = new util();
+import { validarMatricula } from "../biblioteca/util.mjs";
 
 export default class Aluno extends Pessoa {
     #matricula;
 
     setMatricula(matricula) {
-        if(Util.validarMatricula(matricula)){
+        if (validarMatricula(matricula)) {
             this.#matricula = matricula;
             return true;
         }
