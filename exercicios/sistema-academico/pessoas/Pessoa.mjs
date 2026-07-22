@@ -1,6 +1,4 @@
-import util from "../biblioteca/util.mjs";
-
-const Util = new util();
+import {validarEmail} from "../biblioteca/util.mjs";
 
 export default class Pessoa {
     #nome;
@@ -17,7 +15,7 @@ export default class Pessoa {
         return this.#nome;
     }
     setEmail(email) {
-        if(Util.validarEmail(email)){
+        if(validarEmail(email)){
             this.#email = email;
             return true;
         }
