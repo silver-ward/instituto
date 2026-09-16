@@ -1,9 +1,13 @@
-import Login from './components/props/Login.jsx';
+import Label from "./components/states/Label.jsx";
+import Labelln from "./components/states/Labelln.jsx";
+
 
 function App() {
   return (
     <>
-      <Login />
+      <Labelln texto="Tela de Autenticação" />
+      <Label texto="Usuário: "/>
+      <Label texto="Senha: "/>
     </>
   );
 }
