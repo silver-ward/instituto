@@ -1,10 +1,11 @@
-import Login from "./components/states/Login.jsx";
+import Label from "./components/css/Label.jsx";
 
 
 function App() {
   return (
     <>
-      <Login />
+      <Label texto="Usuário: "/>
+      <Label texto="Senha: " />
     </>
   );
 }
