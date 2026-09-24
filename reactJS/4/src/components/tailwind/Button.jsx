@@ -9,7 +9,10 @@ export default function Button({ valor }) {
   }
 
   return (
-    <button onClick={handleClick}>
+    <button
+      onClick={handleClick}
+      className="w-full px-4 py-2 bg-blue-600 text-white text-base rounded-md cursor-pointer hover:bg-blue-800 transition-colors"
+    >
       {texto}
     </button>
   );

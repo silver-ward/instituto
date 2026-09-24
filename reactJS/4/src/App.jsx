@@ -1,4 +1,4 @@
-import Login from "./components/states/Login.jsx";
+import Login from "./components/tailwind/Login.jsx";
 
 
 function App() {
