@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import { Typography } from 'antd';
+
+const { Text } = Typography;
 
 export default function Label({ texto }) {
 
-  const [valor] = useState(texto);
-
   return (
-    <label
-      className="block text-base font-medium text-gray-800 mb-1"
+    <Text
+      strong
+      style={{
+        fontSize: 16,
+        color: '#303030'
+      }}
     >
-      {valor}
-    </label>
+      {texto}
+    </Text>
   );
 }
