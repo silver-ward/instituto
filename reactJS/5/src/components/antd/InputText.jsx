@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { Input, Alert } from 'antd';
 
 export default function InputText({ placeholder }) {
 
   const [valor, setValor] = useState("");
   const [erro, setErro] = useState(false);
 
-  function handleChange(e) {
+  const handleChange = (e) =>{
 
     const novoValor = e.target.value;
 
@@ -15,20 +16,23 @@ export default function InputText({ placeholder }) {
   }
 
   return (
-    <div className="flex flex-col mb-3">
+    <div>
 
-      <input
-        type="text"
+      <Input
         placeholder={placeholder}
         value={valor}
         onChange={handleChange}
-        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:border-blue-600 focus:ring-1 focus:ring-blue-400 outline-none"
+        size="large"
+        status={erro ? "error" : ""}
       />
 
       {erro && (
-        <p className="text-sm text-red-600 mt-1">
-          O campo não pode ficar vazio. ⚠️
-        </p>
+        <Alert
+          message="O campo não pode ficar vazio."
+          type="error"
+          showIcon
+          style={{ marginTop: 8}}
+        />
       )}
 
     </div>
