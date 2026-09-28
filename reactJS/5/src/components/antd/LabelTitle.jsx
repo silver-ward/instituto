@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
+import { Typography } from 'antd';
+
+const { Title } = Typography;
 
 export default function LabelTitle({ texto }) {
 
-  const [valor] = useState(texto);
-
   return (
-    <label
-      className="block text-2xl font-bold text-blue-800 mb-4 text-center"
+    <Title
+      level={2}
+      style={{
+        color: '#1677ff',
+        textAlign: 'center',
+        marginBottom: 24
+      }}
     >
-      {valor}
-    </label>
+      {texto}
+    </Title>
   );
 }
