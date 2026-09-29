@@ -1,19 +1,24 @@
 import React, { useState } from 'react';
+import { Button as AntButton, message } from 'antd';
 
 export default function Button({ valor }) {
 
   const [texto, setTexto] = useState(valor);
 
-  function handleClick() {
+  const handleClick = () =>{
     setTexto("Você clicou!");
+
+    message.success("Botão clicado com sucesso!");
   }
 
   return (
-    <button
+    <AntButton
       onClick={handleClick}
-      className="w-full px-4 py-2 bg-blue-600 text-white text-base rounded-md cursor-pointer hover:bg-blue-800 transition-colors"
+      block
+      size="large"
+      type="primary"
     >
       {texto}
-    </button>
+    </AntButton>
   );
 }
