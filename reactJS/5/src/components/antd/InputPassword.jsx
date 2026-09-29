@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
+import { Input, Typography } from 'antd';
+
+const { Text } = Typography;
 
 export default function InputPassword({ placeholder }) {
 
   const [senha, setSenha] = useState("");
 
   return (
-    <div className="flex flex-col mb-3">
+    <div>
 
-      <input
-        type="password"
+      <Input.Password
         placeholder={placeholder}
         value={senha}
         onChange={(e) => setSenha(e.target.value)}
-        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md focus:border-green-600 focus:ring-1 focus:ring-green-400 outline-none"
+        size="large"
       />
 
-      {senha !== "" && (
-        <p className="text-sm text-gray-600 italic mt-1">
-          Senha digitada: {senha}
-        </p>
-      )}
+      {<Text type="secondary" italic>
+        Senha digitada: {senha}
+      </Text>}
 
     </div>
   );
