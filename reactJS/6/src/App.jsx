@@ -1,10 +1,10 @@
-import Login from "./components/antd/Login.jsx";
+import PessoaForm from "./components/cadastroPessoa/PessoaForm.jsx";
 
 
 function App() {
   return (
     <>
-      <Login />      
+      <PessoaForm />      
     </>
   );
 }
