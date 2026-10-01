@@ -27,7 +27,7 @@ export default function Login() {
 
       <Card
         style={{width: 360}}
-        variant="borderless"
+        variant="outlined"
       >
 
         <LabelTitle texto="Login" />
