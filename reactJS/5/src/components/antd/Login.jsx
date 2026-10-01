@@ -1,40 +1,58 @@
 import React from "react";
 
+import{
+  Card,
+  Space
+} from "antd";
+
 import Label from "./Label.jsx";
 import LabelTitle from "./LabelTitle.jsx";
 import Button from "./Button.jsx";
 import InputText from "./InputText.jsx";
 import InputPassword from "./InputPassword.jsx";
 
-function Login() {
+export default function Login() {
 
   return (
     <div
-      className="flex justify-center items-center h-screen w-screen bg-gray-100"
+      style={{
+        height: "100vh",
+        width: "100vw",
+        backgroundColor: "#f5f5f5",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      }}
     >
 
-      <form
-        className="bg-white p-8 rounded-lg shadow-md w-80"
+      <Card
+        style={{width: 360}}
+        bordered
       >
 
         <LabelTitle texto="Login" />
 
-        <div className="mb-4 flex flex-col">
-          <Label texto="Usuário:" />
-          <InputText placeholder="user..." />
-        </div>
+        <Space
+          orientation="vertical"
+          style={{width:"100%"}}
+          size="middle"
+        >
 
-        <div className="mb-4 flex flex-col">
-          <Label texto="Senha:" />
-          <InputPassword placeholder="password..." />
-        </div>
+          <div>
+            <Label texto="Usuário:" />
+            <InputText placeholder="digite aqui o usuário" />
+          </div>
 
-        <Button valor="Logar" />
+          <div>
+            <Label texto="Senha:" />
+            <InputPassword placeholder="digite aqui a senha" />
+          </div>
 
-      </form>
+          <Button valor="Logar" />
+
+        </Space>
+      </Card>
 
     </div>
   );
 }
-
-export default Login;
