@@ -1,11 +1,12 @@
-import PessoaForm from "./components/cadastroPessoa/PessoaForm.jsx";
+import React from "react";
 
+import PessoaForm
+  from "./components/cadastrapessoa/PessoaFormOO.jsx";
 
 function App() {
+
   return (
-    <>
-      <PessoaForm />      
-    </>
+    <PessoaForm />
   );
 }
 
