@@ -1,13 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, Button, Radio, message } from "antd";
-import { ArrowUpOutlined } from "@ant-design/icons";
-import EnderecoForm from "./EnderecoFormEX";
-import TelefoneList from "./TelefoneListOO";
-import PFForm from "./PFForm";
-import PJForm from "./PJForm";
-import "./pessoaform.css";
 
-// === Importação das classes de modelo (todas dentro da pasta /pessoas)
+import {
+    Form,
+    Input,
+    Button,
+    Radio,
+    message
+} from "antd";
+
+import {
+    useParams,
+    useNavigate
+} from "react-router-dom";
+
+import dayjs from "dayjs";
+
+// Componentes auxiliares
+import EnderecoForm from "./EnderecoFormEX.jsx";
+import TelefoneList from "./TelefoneListOO.jsx";
+import PFForm from "./PFForm.jsx";
+import PJForm from "./PJForm.jsx";
+
+// DAOs
+import PFDAO from "../../objetos/dao/PFDAOLocal.mjs";
+import PJDAO from "../../objetos/dao/PJDAOLocal.mjs";
+
+// Classes de domínio
 import PF from "../../objetos/pessoas/PF.mjs";
 import PJ from "../../objetos/pessoas/PJ.mjs";
 import Endereco from "../../objetos/pessoas/Endereco.mjs";
@@ -15,212 +33,514 @@ import Telefone from "../../objetos/pessoas/Telefone.mjs";
 import Titulo from "../../objetos/pessoas/Titulo.mjs";
 import IE from "../../objetos/pessoas/IE.mjs";
 
-import PFDAO from "../../objetos/dao/PFDAOLocal.mjs";
-import PJDAO from "../../objetos/dao/PJDAOLocal.mjs";
+export default function PessoaFormOO() {
 
-
-function PessoaForm() {
     const [tipo, setTipo] = useState("PF");
-    const [form] = Form.useForm();
-    const [mostrarTopo, setMostrarTopo] = useState(false);
 
-    // =========================
-    // Envio do formulário
-    // =========================
+    const [editando, setEditando] = useState(false);
+
+    const [form] = Form.useForm();
+
+    const navigate = useNavigate();
+
+    const {
+        tipo: tipoParam,
+        id
+    } = useParams();
+
+    const pfDAO = new PFDAO();
+    const pjDAO = new PJDAO();
+
+    // =========================================
+    // CARREGAMENTO DOS DADOS NO MODO DE EDIÇÃO
+    // =========================================
+
+    useEffect(() => {
+
+        if (id && tipoParam) {
+
+            setEditando(true);
+            setTipo(tipoParam);
+
+            const dao = tipoParam === "PF"
+                ? pfDAO
+                : pjDAO;
+
+            const lista = dao.listar();
+
+            const pessoa = lista.find(
+                (p) => p.id === id
+            );
+
+            if (pessoa) {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+                const valores = {
+                    tipo: tipoParam,
+                    nome: pessoa.nome,
+                    email: pessoa.email,
+                    endereco: pessoa.endereco || {},
+                    telefones: pessoa.telefones || [],
+                };
+
+                if (tipoParam === "PF") {
+
+                    valores.cpf = pessoa.cpf;
+
+                    valores.titulo = pessoa.titulo || {
+                        numero: "",
+                        zona: "",
+                        secao: ""
+                    };
+
+                } else {
+
+                    const ieObj = pessoa.ie || {};
+
+                    valores.cnpj = pessoa.cnpj;
+
+                    valores.ie = {
+                        numero: ieObj.numero || "",
+                        estado: ieObj.estado || "",
+                        dataRegistro: ieObj.dataRegistro
+                            ? dayjs(ieObj.dataRegistro)
+                            : null,
+                    };
+
+                }
+
+                form.setFieldsValue(valores);
+
+            } else {
+
+                message.error("Pessoa não encontrada!");
+
+                navigate("/listar");
+
+            }
+
+        }
+
+    }, [id, tipoParam]);
+
+    // =========================================
+    // ALTERAÇÃO DO TIPO DE PESSOA
+    // =========================================
+
+    function onChangeTipo(e) {
+
+        const novoTipo = e.target.value;
+
+        setTipo(novoTipo);
+
+        const valoresAtuais = form.getFieldsValue();
+
+        form.resetFields();
+
+        form.setFieldsValue({
+            ...valoresAtuais,
+            tipo: novoTipo,
+        });
+
+    }
+
+    // =========================================
+    // SALVAR OU ATUALIZAR O REGISTRO
+    // =========================================
+
     async function onFinish(values) {
+
         try {
+
             let pessoa;
 
-            // ===== Criar o endereço =====
-            const end = new Endereco();
-            end.setCep(values.endereco?.cep);
-            end.setLogradouro(values.endereco?.logradouro);
-            end.setBairro(values.endereco?.bairro);
-            end.setCidade(values.endereco?.cidade);
-            end.setUf(values.endereco?.uf);
-            end.setRegiao(values.endereco?.regiao);
+            const endVals = values.endereco || {};
 
-            // ===== Pessoa Física =====
+            // Construção do objeto Endereco
+            const end = new Endereco();
+
+            end.setCep(endVals.cep);
+            end.setLogradouro(endVals.logradouro);
+            end.setBairro(endVals.bairro);
+            end.setCidade(endVals.cidade);
+            end.setUf(endVals.uf);
+            end.setRegiao(endVals.regiao);
+
+            // =====================================
+            // PESSOA FÍSICA
+            // =====================================
+
             if (values.tipo === "PF") {
+
                 const pf = new PF();
+
                 pf.setNome(values.nome);
                 pf.setEmail(values.email);
                 pf.setCPF(values.cpf);
                 pf.setEndereco(end);
 
-                // ===== Título Eleitoral (se existir)
+                // Título eleitoral
                 if (values.titulo) {
+
                     const t = new Titulo();
+
                     t.setNumero(values.titulo.numero);
                     t.setZona(values.titulo.zona);
                     t.setSecao(values.titulo.secao);
+
                     pf.setTitulo(t);
+
                 }
 
-                // ===== Telefones
-                if (values.telefones && values.telefones.length > 0) {
+                // Telefones
+                if (values.telefones?.length > 0) {
+
                     values.telefones.forEach((tel) => {
+
                         const fone = new Telefone();
+
                         fone.setDdd(tel.ddd);
                         fone.setNumero(tel.numero);
+
                         pf.addTelefone(fone);
+
                     });
+
                 }
 
                 pessoa = pf;
-            }
-            // ===== Pessoa Jurídica =====
-            else if (values.tipo === "PJ") {
+
+            } else {
+
+                // ===================================
+                // PESSOA JURÍDICA
+                // ===================================
+
                 const pj = new PJ();
+
                 pj.setNome(values.nome);
                 pj.setEmail(values.email);
                 pj.setCNPJ(values.cnpj);
                 pj.setEndereco(end);
 
-                // ===== IE (Inscrição Estadual)
+                // Inscrição Estadual
                 if (values.ie) {
+
                     const ie = new IE();
+
                     ie.setNumero(values.ie.numero);
                     ie.setEstado(values.ie.estado);
-                    ie.setDataRegistro(values.ie.dataRegistro);
+
+                    // Converte dayjs para string
+                    const dr = values.ie.dataRegistro;
+
+                    const dataRegistro =
+                        dr &&
+                            typeof dr === "object" &&
+                            typeof dr.format === "function"
+                            ? dr.format("YYYY-MM-DD")
+                            : dr || "";
+
+                    ie.setDataRegistro(dataRegistro);
+
                     pj.setIE(ie);
+
                 }
 
-                // ===== Telefones
-                if (values.telefones && values.telefones.length > 0) {
+                // Telefones
+                if (values.telefones?.length > 0) {
+
                     values.telefones.forEach((tel) => {
+
                         const fone = new Telefone();
+
                         fone.setDdd(tel.ddd);
                         fone.setNumero(tel.numero);
+
                         pj.addTelefone(fone);
+
                     });
+
                 }
 
                 pessoa = pj;
+
             }
 
-            // ===== Persistência via DAO =====
-            if (pessoa) {
-                if (values.tipo === "PF") {
-                    const pfDAO = new PFDAO();
-                    pfDAO.salvar(pessoa);
-                    message.success("Pessoa Física salva com sucesso!");
-                } else if (values.tipo === "PJ") {
-                    const pjDAO = new PJDAO();
-                    pjDAO.salvar(pessoa);
-                    message.success("Pessoa Jurídica salva com sucesso!");
-                }
-            }
+            // =====================================
+            // PERSISTÊNCIA: CADASTRO OU EDIÇÃO
+            // =====================================
 
-            console.clear();
-            console.log("✅ OBJETO FINAL INSTANTIADO ===>", pessoa);
-            message.success("Objeto criado com sucesso! Veja o console.");
-        } catch (erro) {
-            console.error("❌ Erro ao criar o objeto:", erro);
-            message.error("Erro ao criar o objeto: " + erro.message);
-        }
-    }
+            const dao = tipo === "PF"
+                ? pfDAO
+                : pjDAO;
 
-    // =========================
-    // Troca de tipo PF/PJ
-    // =========================
-    function onChangeTipo(e) {
-        const novoTipo = e.target.value;
-        setTipo(novoTipo);
-        const valoresAtuais = form.getFieldsValue();
-        form.resetFields();
-        form.setFieldsValue({
-            ...valoresAtuais,
-            tipo: novoTipo,
-        });
-    }
+            if (editando && id) {
 
-    // =========================
-    // Botão “voltar ao topo”
-    // =========================
-    useEffect(function () {
-        function verificarScroll() {
-            if (window.scrollY > 200) {
-                setMostrarTopo(true);
+                dao.atualizar(id, pessoa);
+
+                message.success(
+                    "Registro atualizado com sucesso!"
+                );
+
             } else {
-                setMostrarTopo(false);
-            }
-        }
-        window.addEventListener("scroll", verificarScroll);
-        return () => window.removeEventListener("scroll", verificarScroll);
-    }, []);
 
-    function voltarAoTopo() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+                dao.salvar(pessoa);
+
+                message.success(
+                    "Registro criado com sucesso!"
+                );
+
+            }
+
+            form.resetFields();
+
+            setTimeout(
+                () => navigate("/listar"),
+                600
+            );
+
+        } catch (erro) {
+
+            console.error(
+                "Erro ao salvar:",
+                erro
+            );
+
+            message.error(
+                "Erro ao salvar registro: " + erro.message
+            );
+
+        }
+
     }
 
-    // =========================
-    // Renderização
-    // =========================
-    return (
-        <div className="main-scroll">
-            <div className="form-container">
-                <h2>Cadastro de {tipo === "PF" ? "Pessoa Física" : "Pessoa Jurídica"}</h2>
+    // =========================================
+    // APRESENTAÇÃO DO FORMULÁRIO
+    // =========================================
 
-                <Form layout="vertical" form={form} onFinish={onFinish}>
+    return (
+
+        <div
+            className="main-scroll"
+            style={{
+                overflowY: "auto",
+                overflowX: "hidden",
+                height: "100vh",
+                background: "#f9f9f9",
+            }}
+        >
+
+            <div
+                className="form-container"
+                style={{
+                    maxWidth: 800,
+                    margin: "24px auto",
+                    background: "#fff",
+                    padding: 24,
+                    borderRadius: 8,
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+                }}
+            >
+
+                <h2
+                    style={{
+                        textAlign: "center",
+                        marginBottom: 20
+                    }}
+                >
+
+                    {editando
+                        ? `Editar ${tipo === "PF"
+                            ? "Pessoa Física"
+                            : "Pessoa Jurídica"
+                        }`
+                        : `Cadastro de ${tipo === "PF"
+                            ? "Pessoa Física"
+                            : "Pessoa Jurídica"
+                        }`}
+
+                </h2>
+
+                <Form
+                    layout="vertical"
+                    form={form}
+                    onFinish={onFinish}
+                    scrollToFirstError
+                >
+
                     {/* Tipo de Pessoa */}
+
                     <Form.Item
                         label="Tipo de Pessoa"
                         name="tipo"
                         initialValue="PF"
                         style={{ marginBottom: 10 }}
                     >
-                        <Radio.Group onChange={onChangeTipo}>
-                            <Radio value="PF">Pessoa Física</Radio>
-                            <Radio value="PJ">Pessoa Jurídica</Radio>
+
+                        <Radio.Group
+                            onChange={onChangeTipo}
+                            disabled={editando}
+                        >
+
+                            <Radio value="PF">
+                                Pessoa Física
+                            </Radio>
+
+                            <Radio value="PJ">
+                                Pessoa Jurídica
+                            </Radio>
+
                         </Radio.Group>
+
                     </Form.Item>
 
-                    {/* Campos básicos */}
+                    {/* Nome */}
+
                     <Form.Item
                         label="Nome"
                         name="nome"
-                        rules={[{ required: true, message: "Informe o nome!" }]}
+                        rules={[
+                            {
+                                required: true,
+                                message: "Informe o nome!"
+                            }
+                        ]}
                     >
-                        <Input placeholder="Nome completo ou razão social" />
+
+                        <Input
+                            placeholder="Nome completo ou razão social"
+                        />
+
                     </Form.Item>
+
+                    {/* E-mail */}
 
                     <Form.Item
                         label="Email"
                         name="email"
                         rules={[
-                            { required: true, message: "Informe o e-mail!" },
-                            { type: "email", message: "Formato de e-mail inválido!" },
+                            {
+                                required: true,
+                                message: "Informe o e-mail!"
+                            },
+                            {
+                                type: "email",
+                                message: "Formato de e-mail inválido!"
+                            }
                         ]}
                     >
-                        <Input placeholder="exemplo@email.com" />
+
+                        <Input
+                            placeholder="exemplo@email.com"
+                        />
+
                     </Form.Item>
 
-                    {/* Endereço e Telefones */}
-                    <EnderecoForm form={form} />
+                    {/* CPF ou CNPJ */}
+
+                    {tipo === "PF" ? (
+
+                        <Form.Item
+                            label="CPF"
+                            name="cpf"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Informe o CPF!"
+                                }
+                            ]}
+                        >
+
+                            <Input
+                                placeholder="Somente números"
+                                maxLength={11}
+                            />
+
+                        </Form.Item>
+
+                    ) : (
+
+                        <Form.Item
+                            label="CNPJ"
+                            name="cnpj"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Informe o CNPJ!"
+                                }
+                            ]}
+                        >
+
+                            <Input
+                                placeholder="Somente números"
+                                maxLength={18}
+                            />
+
+                        </Form.Item>
+
+                    )}
+
+                    {/* Endereço */}
+
+                    <EnderecoForm />
+
+                    {/* Telefones */}
+
                     <TelefoneList form={form} />
 
-                    {/* PF ou PJ */}
-                    {tipo === "PF" ? <PFForm /> : <PJForm />}
+                    {/* Campos específicos */}
 
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit" block>
-                            Salvar
+                    {tipo === "PF"
+                        ? <PFForm />
+                        : <PJForm />}
+
+                    {/* Botão principal */}
+
+                    <Form.Item
+                        style={{ marginTop: 20 }}
+                    >
+
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            block
+                        >
+
+                            {editando
+                                ? "Salvar Alterações"
+                                : "Salvar"}
+
                         </Button>
+
                     </Form.Item>
+
+                    {/* Cancelamento da edição */}
+
+                    {editando && (
+
+                        <Form.Item>
+
+                            <Button
+                                block
+                                onClick={() => navigate("/listar")}
+                            >
+                                Cancelar
+                            </Button>
+
+                        </Form.Item>
+
+                    )}
+
                 </Form>
+
             </div>
 
-            {/* Botão flutuante */}
-            <button
-                className={`scroll-top-button ${mostrarTopo ? "" : "hidden"}`}
-                onClick={voltarAoTopo}
-                title="Voltar ao topo"
-            >
-                <ArrowUpOutlined />
-            </button>
         </div>
+
     );
 }
-
-export default PessoaForm;
