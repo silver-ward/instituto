@@ -27,6 +27,12 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > **CRIAR E RODAR CONTAINER:**  
 > `docker run -d httpd:2.4`  
 > &nbsp;&nbsp;&nbsp;&nbsp;-d → detached  
+>   
+> `docker run -dit --name meu_webserver -p 8080:80 httpd:2.4`  
+> &nbsp;&nbsp;&nbsp;&nbsp; -dit →  detached + interactive + teletypewriter  
+> &nbsp;&nbsp;&nbsp;&nbsp; -p →  port  
+> &nbsp;&nbsp;&nbsp;&nbsp; 8080 →  external port (host)  
+> &nbsp;&nbsp;&nbsp;&nbsp; :80 →  internal port (container)  
 
 > **ACESSAR TERMINAL DO CONTAINER:**  
 > `docker exec -it <container id> /bin/bash`  
@@ -47,8 +53,16 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > &nbsp;&nbsp;&nbsp;&nbsp; rm → remove  
     
 > **:**  
+> `docker run -dit --name meu_webserver -p 8080:80 httpd:2.4`  
+> &nbsp;&nbsp;&nbsp;&nbsp; →   
+
+
+
+> **:**  
 > `docker `  
 > &nbsp;&nbsp;&nbsp;&nbsp; →   
+
+
 
 #### Docker Hub:
 https://hub.docker.com/
