@@ -39,6 +39,10 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > &nbsp;&nbsp;&nbsp;&nbsp; exec → execute  
 > &nbsp;&nbsp;&nbsp;&nbsp; -it → interactive + TTY (teletypewriter)  
 > &nbsp;&nbsp;&nbsp;&nbsp; /bin/bash → endereço do bash do próprio container  
+>  
+> `hostname`  → returns container id  
+> `exit` → exits container's CLI  
+> basic CLI commands → ls, cd...  
   
 > **STOP CONTAINER:**  
 > `docker stop <container id>`  
