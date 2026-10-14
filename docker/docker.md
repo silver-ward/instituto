@@ -16,7 +16,7 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > **LIST IMAGES:**  
 > `docker images`  
 
-> **DOWNLOAD IMAGE:** 
+> **DOWNLOAD IMAGE:**  
 > `docker pull httpd:2.4`  
 > &nbsp;&nbsp;&nbsp;&nbsp; :2.4 → versão 2.4  
   
