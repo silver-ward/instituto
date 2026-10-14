@@ -8,23 +8,23 @@ O Docker é uma plataforma aberta para desenvolver, distribuir e executar aplica
 Essa plataforma permite empacotar um aplicativo e suas dependências em um container — um ambiente leve e isolado que contém tudo o que é necessário para a execução do aplicativo.
 
 ### Comandos básicos:
-> **LISTAR CONTAINERS:**  
+> **LIST CONTAINERS:**  
 > `docker ps -a`  
 > &nbsp;&nbsp;&nbsp;&nbsp;ps → process status  
 > &nbsp;&nbsp;&nbsp;&nbsp;-a → all  
 
-> **LISTAR IMAGENS:**  
+> **LIST IMAGES:**  
 > `docker images`  
 
-> **BAIXAR IMAGEM:** 
+> **DOWNLOAD IMAGE:** 
 > `docker pull httpd:2.4`  
 > &nbsp;&nbsp;&nbsp;&nbsp; :2.4 → versão 2.4  
   
-> **REMOVER IMAGEM:**  
+> **REMOVE IMAGE:**  
 > `docker rmi <image id>`  
 > &nbsp;&nbsp;&nbsp;&nbsp; rmi → remove image   
   
-> **CRIAR E RODAR CONTAINER:**  
+> **CREATE AND RUN CONTAINER:**  
 > `docker run -d httpd:2.4`  
 > &nbsp;&nbsp;&nbsp;&nbsp;-d → detached  
 >   
@@ -34,21 +34,21 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > &nbsp;&nbsp;&nbsp;&nbsp; 8080 →  external port (host)  
 > &nbsp;&nbsp;&nbsp;&nbsp; :80 →  internal port (container)  
 
-> **ACESSAR TERMINAL DO CONTAINER:**  
+> **ACCESS CONTAINER TERMINAL:**  
 > `docker exec -it <container id> /bin/bash`  
 > &nbsp;&nbsp;&nbsp;&nbsp; exec → execute  
 > &nbsp;&nbsp;&nbsp;&nbsp; -it → interactive + TTY (teletypewriter)  
 > &nbsp;&nbsp;&nbsp;&nbsp; /bin/bash → endereço do bash do próprio container  
   
-> **PARAR CONTAINER:**  
+> **STOP CONTAINER:**  
 > `docker stop <container id>`  
 > &nbsp;&nbsp;&nbsp;&nbsp; →   
   
-> **INICIAR CONTAINER:**  
+> **START CONTAINER:**  
 > `docker start <container id>`  
 > &nbsp;&nbsp;&nbsp;&nbsp; →   
   
-> **REMOVER CONTAINER:**  
+> **REMOVE CONTAINER:**  
 > `docker rm <container id>`  
 > &nbsp;&nbsp;&nbsp;&nbsp; rm → remove  
     
