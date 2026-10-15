@@ -29,7 +29,7 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > &nbsp;&nbsp;&nbsp;&nbsp;-d → detached  
 >   
 > `docker run -dit --name meu_webserver -p 8080:80 httpd:2.4`  
-> &nbsp;&nbsp;&nbsp;&nbsp; -dit →  detached + interactive + teletypewriter  
+> &nbsp;&nbsp;&nbsp;&nbsp; -dit →  detached + interactive + TTY (teletypewriter)  
 > &nbsp;&nbsp;&nbsp;&nbsp; -p →  port  
 > &nbsp;&nbsp;&nbsp;&nbsp; 8080 →  external port (host)  
 > &nbsp;&nbsp;&nbsp;&nbsp; :80 →  internal port (container)  
@@ -40,9 +40,14 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > &nbsp;&nbsp;&nbsp;&nbsp; -it → interactive + TTY (teletypewriter)  
 > &nbsp;&nbsp;&nbsp;&nbsp; /bin/bash → endereço do bash do próprio container  
 >  
+>  **CLI functionalities:**  
 > `hostname`  → returns container id  
 > `exit` → exits container's CLI  
-> basic CLI commands → ls, cd...  
+> basic CLI commands → ls -l, cd...  
+> install packages, e.g.:  
+> &nbsp;&nbsp;&nbsp;&nbsp;apt update  
+> &nbsp;&nbsp;&nbsp;&nbsp;apt install nano  
+> &nbsp;&nbsp;&nbsp;&nbsp;nano index.html
   
 > **STOP CONTAINER:**  
 > `docker stop <container id>`  
