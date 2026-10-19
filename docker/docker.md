@@ -7,7 +7,7 @@ O Docker é uma plataforma aberta para desenvolver, distribuir e executar aplica
 
 Essa plataforma permite empacotar um aplicativo e suas dependências em um container — um ambiente leve e isolado que contém tudo o que é necessário para a execução do aplicativo.
 
-### Comandos básicos:
+### General Commands:
 > **LIST CONTAINERS:**  
 > `docker ps -a`  
 > &nbsp;&nbsp;&nbsp;&nbsp;ps → process status  
@@ -27,12 +27,6 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > **CREATE AND RUN CONTAINER:**  
 > `docker run -d httpd:2.4`  
 > &nbsp;&nbsp;&nbsp;&nbsp;-d → detached  
->   
-> `docker run -dit --name meu_webserver -p 8080:80 httpd:2.4`  
-> &nbsp;&nbsp;&nbsp;&nbsp; -dit →  detached + interactive + TTY (teletypewriter)  
-> &nbsp;&nbsp;&nbsp;&nbsp; -p →  port  
-> &nbsp;&nbsp;&nbsp;&nbsp; 8080 →  external port (host)  
-> &nbsp;&nbsp;&nbsp;&nbsp; :80 →  internal port (container)  
 
 > **ACCESS CONTAINER TERMINAL:**  
 > `docker exec -it <container id> /bin/bash`  
@@ -60,17 +54,22 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > **REMOVE CONTAINER:**  
 > `docker rm <container id>`  
 > &nbsp;&nbsp;&nbsp;&nbsp; rm → remove  
-    
-> **:**  
+
+### WebServer Commands:
 > `docker run -dit --name meu_webserver -p 8080:80 httpd:2.4`  
-> &nbsp;&nbsp;&nbsp;&nbsp; →   
+> &nbsp;&nbsp;&nbsp;&nbsp; -dit →  detached + interactive + TTY (teletypewriter)  
+> &nbsp;&nbsp;&nbsp;&nbsp; -p →  port  
+> &nbsp;&nbsp;&nbsp;&nbsp; 8080 →  external port (host)  
+> &nbsp;&nbsp;&nbsp;&nbsp; :80 →  internal port (container)  
 
-
-
+### PostgreSQL Commands:
 > **:**  
 > `docker `  
 > &nbsp;&nbsp;&nbsp;&nbsp; →   
 
+> **:**  
+> `docker `  
+> &nbsp;&nbsp;&nbsp;&nbsp; →   
 
 
 #### Docker Hub:
