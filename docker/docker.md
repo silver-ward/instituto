@@ -7,6 +7,12 @@ O Docker é uma plataforma aberta para desenvolver, distribuir e executar aplica
 
 Essa plataforma permite empacotar um aplicativo e suas dependências em um container — um ambiente leve e isolado que contém tudo o que é necessário para a execução do aplicativo.
 
+### Redes Docker:
+> **bridge:** Rede padrão. Containers se comunicam entre si, mas não com o host diretamente.  
+> **host:** Container compartilha a rede do host. Sem isolamento de IP.  
+> **overlay:** Rede entre múltiplos hosts (usado com Docker Swarm).  
+> **none:** Sem rede. Container totalmente isolado.  
+
 ### General Commands:
 > **LIST CONTAINERS:**  
 > `docker ps -a`  
