@@ -76,6 +76,22 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
     > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "pgdata"'s position can be replaced with a path in host (Bind Mount)  
 > &nbsp;&nbsp;&nbsp;&nbsp; :/var/[...] → path in the container that will be mirrored in the "pgdata" volume   
 
+### Volume Commands:
+> **CREATE VOLUME:**  
+> `docker volume create <volume name>`  
+
+> **LIST VOLUMES:**  
+> `docker volume ls`  
+
+> **INSPECT VOLUME:**  
+> `docker volume inspect <volume name>`  
+
+> **REMOVE VOLUME:**  
+> `docker volume rm <volume name>`  
+
+> **REMOVE UNUSED VOLUMES:**  
+> `docker volume prune`  
+
 #### Docker Hub:
 https://hub.docker.com/
 
