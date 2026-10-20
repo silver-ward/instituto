@@ -29,7 +29,7 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > &nbsp;&nbsp;&nbsp;&nbsp;-d → detached  
 
 > **ACCESS CONTAINER TERMINAL:**  
-> `docker exec -it <container id> /bin/bash`  
+> `docker exec -it <container id/name> /bin/bash`  
 > &nbsp;&nbsp;&nbsp;&nbsp; exec → execute  
 > &nbsp;&nbsp;&nbsp;&nbsp; -it → interactive + TTY (teletypewriter)  
 > &nbsp;&nbsp;&nbsp;&nbsp; /bin/bash → endereço do bash do próprio container  
@@ -44,15 +44,15 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > &nbsp;&nbsp;&nbsp;&nbsp;nano index.html
   
 > **STOP CONTAINER:**  
-> `docker stop <container id>`  
+> `docker stop <container id/name>`  
 > &nbsp;&nbsp;&nbsp;&nbsp; →   
   
 > **START CONTAINER:**  
-> `docker start <container id>`  
+> `docker start <container id/name>`  
 > &nbsp;&nbsp;&nbsp;&nbsp; →   
   
 > **REMOVE CONTAINER:**  
-> `docker rm <container id>`  
+> `docker rm <container id/name>`  
 > &nbsp;&nbsp;&nbsp;&nbsp; rm → remove  
 
 ### WebServer Commands:
