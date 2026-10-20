@@ -63,14 +63,21 @@ Essa plataforma permite empacotar um aplicativo e suas dependências em um conta
 > &nbsp;&nbsp;&nbsp;&nbsp; :80 →  internal port (container)  
 
 ### PostgreSQL Commands:
-> **:**  
-> `docker `  
-> &nbsp;&nbsp;&nbsp;&nbsp; →   
-
-> **:**  
-> `docker `  
-> &nbsp;&nbsp;&nbsp;&nbsp; →   
-
+> **CREATE AND RUN CONTAINER:**  
+> `docker run -dit --name meu_banco -p 5432:5432 -e POSTGRES_PASSWORD=aluno -v pgdata:/var/lib/postgresql postgres`  
+> &nbsp;&nbsp;&nbsp;&nbsp; -dit →  detached + interactive + TTY (teletypewriter)  
+> &nbsp;&nbsp;&nbsp;&nbsp; -p →  port  
+> &nbsp;&nbsp;&nbsp;&nbsp; 5432 →  external port (host)  
+> &nbsp;&nbsp;&nbsp;&nbsp; :5432 →  internal port (container)  
+> &nbsp;&nbsp;&nbsp;&nbsp; -e → environment variable (--env)   
+> &nbsp;&nbsp;&nbsp;&nbsp; -v → volume   
+> &nbsp;&nbsp;&nbsp;&nbsp; pgdata → custom volume name (Named Volume)  
+    > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Docker will store the volume at /var/lib/docker/volumes/pgdata/  
+    > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "pgdata"'s position can be replaced with a path in host (Bind Mount)  
+> &nbsp;&nbsp;&nbsp;&nbsp; :/var/[...] → path in the container that will be mirrored in the "pgdata" volume   
 
 #### Docker Hub:
 https://hub.docker.com/
+
+#### pgAdmin 4:
+https://www.pgadmin.org/download/
